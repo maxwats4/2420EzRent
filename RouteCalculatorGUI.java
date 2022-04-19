@@ -184,7 +184,19 @@ public class RouteCalculatorGUI extends GUI{
 	}
 	
 	private void displayFastestRoute() {
+		//Call methods to calculate quickest route and price
+		startLocation = fromTextField.getText();
+		destination = destinationTextField.getText();
 		
+		int startLocIndex = getLocationIndex(startLocation, locations);
+		destinationIndex = getLocationIndex(destination, locations);
+		if(destinationIndex > -1 && startLocIndex > -1) {
+			 DijkstraSP path = new DijkstraSP(graph, startLocIndex);
+			 System.out.println(translator(path.pathTo(destinationIndex).toString()));
+			 routeInfo.setText("Path to Destination: "+ translator(path.pathTo(destinationIndex).toString()));
+		}
+		
+	
 	}
 	
 	private double calculatePrice(Iterable<Edge> e, vehicle v) {
@@ -192,15 +204,9 @@ public class RouteCalculatorGUI extends GUI{
 		
 	}
 	
-	private int getLocationNumber(String location) {
-		return 0;
-		
-	}
 	
-	private String vertexNumbertoLocation(int i) {
-		return null;
-		
-	}
+	
+	
 	
 	/*private String printBestRoute(Iterable<Edge>) {
 		
@@ -225,18 +231,7 @@ public class RouteCalculatorGUI extends GUI{
 					
 				}
 				else if (e.getSource() == calculateRouteButton) {
-					//Call methods to calculate quickest route and price
-					startLocation = fromTextField.getText();
-					destination = destinationTextField.getText();
-					
-					int startLocIndex = getLocationIndex(startLocation, locations);
-					destinationIndex = getLocationIndex(destination, locations);
-					if(destinationIndex > -1 && startLocIndex > -1) {
-						 DijkstraSP path = new DijkstraSP(graph, startLocIndex);
-						 System.out.println(translator(path.pathTo(destinationIndex).toString()));
-						 routeInfo.setText("Path to Destination: "+ translator(path.pathTo(destinationIndex).toString()));
-					}
-					
+					displayFastestRoute();
 				
 				}
 				
@@ -244,4 +239,3 @@ public class RouteCalculatorGUI extends GUI{
 			
 		}
 }
-
