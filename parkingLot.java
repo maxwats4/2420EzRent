@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import finalPackage.ParkingLotTest;
+import ezrent.ParkingLotTest;
 /**
  * NOTES: Might need to change the Java.util.queue to a algs4 queue this week
  * 
@@ -412,7 +412,7 @@ public class parkingLot {
 		    {
 		      // here length returns number of columns corresponding to current row
 			// using tabs for equal spaces, looks better aligned
-			// matrix[i][j] will return each element placed at row â€˜i',column 'j'
+			// matrix[i][j] will return each element placed at row ‘i',column 'j'
 			System.out.print( matrix[i][j]  + "\t");
 		     }
 		     System.out.println();
@@ -492,7 +492,4 @@ public class parkingLot {
 			 ParkingLotTest.closestSpot.setText(out);
 			 
 		 }
-
-	
-
 }
